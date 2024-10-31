@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queue Controller</title>
+</head>
+<body>
+    <h1>Queue Controller</h1>
+    <button onclick="nextQueue()">Next Queue</button>
+
+    <script>
+        function nextQueue() {
+            fetch('updateQueue.php', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    alert("Queue updated to " + data.queue);
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
